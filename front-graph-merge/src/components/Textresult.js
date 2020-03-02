@@ -17,11 +17,7 @@ class Textresult extends Component {
         this.setState({difficultyUpdate : data})
     }
     showButton=()=>{
-        if(this.props.userInfo.userId){
-            return(<button id={"writecomment"} className={"blue"} onClick={this.onModeComment}> 의견 남기기</button>)
-        }else{
-            return(<span></span>)
-        }
+        return(<button id={"writecomment"} className={"blue"} onClick={this.onModeComment}> 의견 남기기</button>)
     }
     render() {
         
@@ -32,8 +28,6 @@ class Textresult extends Component {
             <button id={"before"} className={"blue"} type="button" onClick={this.onModeSearch}> 뒤로 </button>
             {this.showButton()}
             </div>
-
-            <div id={"login"}><Login onModeComment={this.onModeComment}></Login></div>
         </div>
          );
     }

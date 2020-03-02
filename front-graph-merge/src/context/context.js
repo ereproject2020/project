@@ -10,12 +10,6 @@ const { Provider, Consumer: InfoConsumer } = Context;
 
 class InfoProvider extends Component {
     state = {
-        userInfo: {
-            userId: '',
-            name: '',
-            image: '',
-
-        },
         songInfo: [],
         comment: [],
     }
