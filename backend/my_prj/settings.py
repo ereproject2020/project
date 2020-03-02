@@ -25,7 +25,8 @@ SECRET_KEY = '$qy8jaepy==nysf8f+===b438d*otq^0ux6+&1@a*0f3@esv3v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['woojinger.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['woojinger.pythonanywhere.com']
 
 
 # Application definition
