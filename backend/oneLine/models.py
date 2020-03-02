@@ -18,8 +18,7 @@ class Comment(models.Model):
 	starsIdx = models.IntegerField(default=1)
 	starsRating = models.IntegerField(default=1)
 	userId = models.TextField(default="unknown")
-	userName = models.TextField(default="unknown")
-	userImage = models.TextField(default="nan")
+	userPassword = models.TextField(default="unknown")
 
 
 	#created_at = models.DateTimeField(auto_now_add=True)
