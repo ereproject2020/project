@@ -26,4 +26,3 @@ class Comment(models.Model):
 
 	def get_absolute_url(self):
 		return '/comment/{}/'.format(self.pk)
-
