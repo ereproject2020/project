@@ -29,15 +29,6 @@ class CreateForm extends Component {
     }
     handleSubmit = async (e) => {
         e.preventDefault()
-        const config = {
-            mode: 'no-cors',
-            headers: {
-              'Access-Control-Allow-Origin': '*',
-              'Content-Type': 'application/json',
-            },
-            withCredentials: true,
-            credentials: 'same-origin',
-        }
         await axios.post("http://woojinger.pythonanywhere.com/api/song/", {
             title: this.state.title,
             singer: this.state.singer

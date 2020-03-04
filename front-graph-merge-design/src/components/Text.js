@@ -23,8 +23,7 @@ class Text extends Component {
     }
     authorized = false
     modeUpdate = (e) => {
-        if ((this.state.userId === this.props.info.userId) && (this.state.userPassword === this.props.info.userPassword)
-            && (e.target.name == "update")) {
+        if (this.state.update) {
             this.handleUpdate()
         } else {
             this.setState({ mode: e.target.name })
@@ -121,9 +120,8 @@ class Text extends Component {
             return (
                 <div className={"text"}>
                     <input id={"password"} type="text" placeholder="Type Your Password" onChange={this.handleChange}
-                        value={this.state .userPassword} name="userPassword" /><br />
+                        value={this.state .userPassword} name="userPassword"/><br />
                     <Popup modal trigger={<button id={"passwordsubmit"} className={"updatebutton goldenrod"}>Submit</button>}>
-                    
                         <div className={"popuptext"}>This Process is Permanent</div>
                         <div className={"popuptext"}>Continue?</div>
                         <button id={"continue"} className={"blue"} type="button" onClick={this.UpdateSubmit}>

@@ -11,13 +11,13 @@ axios.defaults.xsrfHeaderName = "X-CSRFToken";
 class Songinfo extends Component {
     state = {
         loading: true,
-        difficulty : 0
+        difficulty: 0
     }
 
-    componentDidUpdate(prevProps){
-        if(this.props.difficulty !== prevProps.difficulty){ 
+    componentDidUpdate(prevProps) {
+        if (this.props.difficulty !== prevProps.difficulty) {
             this.setState({
-                difficulty:this.props.difficulty
+                difficulty: this.props.difficulty
             })
         }
     }
@@ -25,10 +25,10 @@ class Songinfo extends Component {
     setDifficulty = async () => {
         const config = {
             mode: 'no-cors',
-             headers: {
+            headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
-             },
+            },
             withCredentials: true,
             credentials: 'same-origin',
         }
@@ -36,16 +36,20 @@ class Songinfo extends Component {
             params: {
                 song: this.props.song.id
             }
-        }).then(function(res){
-            var rating=0
-            for(var i in res.data){
-                rating=rating+res.data[i].starsIdx+res.data[i].starsRating
+        }).then(function (res) {
+            if (res.data.length === 0) {
+                this.setState({ difficulty: "No Rated" })
+            } else {
+                var rating = 0
+                for (var i in res.data) {
+                    rating = rating + res.data[i].starsIdx + res.data[i].starsRating
+                }
+                this.setState({ difficulty: (rating / res.data.length).toFixed(2) })
             }
-            this.setState({difficulty : (rating/res.data.length).toFixed(2)})
-            console.log("calculate difficulty")
-        }.bind(this)    
+
+        }.bind(this)
         ).then(
-            this.setState({loading : false})
+            this.setState({ loading: false })
         ).catch(e => console.log(e))
         return true
     }
@@ -59,13 +63,13 @@ class Songinfo extends Component {
                     <div className='label2'>Singer</div>
                     <div className="title"> {song.title}</div>
                     <div className="singer"> {song.singer}</div>
-                    <div className="difficulty"> <div style={{"position": "relative","right": "1.5vh"}}>Difficulty</div><h2 style={{"margin":"auto"}}>{this.state.difficulty}</h2></div>
-                    <div className="ratenumber">{this.props.comment.length} users have rated</div> 
+                    <div className="difficulty"> <div style={{ "position": "relative", "right": "1.5vh" }}>Difficulty</div><h2 style={{ "margin": "auto" }}>{this.state.difficulty}</h2></div>
+                    <div className="ratenumber">{this.props.comment.length} users have rated</div>
                 </div>
             );
-        }else{
+        } else {
             this.setDifficulty()
-            return(
+            return (
                 <div>
                     loading..
                 </div>

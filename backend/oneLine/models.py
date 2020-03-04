@@ -19,10 +19,9 @@ class Comment(models.Model):
 	starsRating = models.IntegerField(default=1)
 	userId = models.TextField(default="unknown")
 	userPassword = models.TextField(default="unknown")
-
-
 	#created_at = models.DateTimeField(auto_now_add=True)
 	#modified_at = models.DateTimeField(auto_now=True)
 
 	def get_absolute_url(self):
 		return '/comment/{}/'.format(self.pk)
+
