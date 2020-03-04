@@ -312,7 +312,7 @@ range3.contents.fillOpacity = 0.1;
                 <div className = 'scoretext'>
                    Current : {this.props.audioData}
                     <br/>
-                    Highest : {this.state.highest}
+                    Highest(5s) : {this.state.highest}
                 </div>
               </div>
               <div>
