@@ -1,0 +1,22 @@
+
+.textlist text{
+    grid-area:comment;
+}
+
+#buttons{
+    display:flex;
+    justify-content:center;
+}
+
+#more{
+    grid-area: right;
+    margin:1vh;
+}
+#past{
+    grid-area: left;
+    margin:1vh;
+}
+
+h3{
+    margin-left: 2vh
+}

@@ -1,0 +1,114 @@
+.text{
+    border: 1px solid black;
+    padding: 8px;
+    margin: 8px;
+    border-radius: 2vh;
+    display:grid;
+    grid-template-rows: 1fr 3fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    ". . nickname"
+    "opinion opinion opinion"
+    "star rating updatebutton";
+}
+
+.opinion{
+    grid-area : opinion;
+    position: relative;
+    left: 1vh;
+}
+.opinion textarea{
+    resize: none;
+    font-size: large;
+    margin:auto;
+    padding-left:3vh;
+    width: 70vw;
+}
+.rating{
+    grid-area : rating;
+    position: relative;  
+    margin-left :2vh;
+    font-size: 3vh;
+}
+
+#star{
+    grid-area: star;
+    margin-bottom: 5vh;
+}
+
+.updatebutton{
+    grid-area: updatebutton;
+}
+
+.more{
+    float: right;
+    margin: auto;
+}
+
+.past{
+    float:right;
+    margin: auto;
+}
+
+#updatesubmit{
+    padding: 1vh;
+    margin-right: 1vh;
+    border-radius: 1vh;
+    width: 10vh;
+}
+
+#delete{
+    padding: 1vh;
+    margin: auto;
+    border-radius: 1vh;
+    width: 10vh;
+}
+
+#nickname{
+    color:rgb(177, 177, 177)
+}
+#password{
+    grid-area:opinion;
+    width: 40vh;
+    height: 5vh;
+    margin: auto;
+}
+
+#passwordsubmit{
+    grid-area:updatebutton;
+    position: relative;
+    width: auto;
+    margin: auto;
+    padding: 1vh;
+    border-radius: 1vh;
+    right: 6vh;
+    
+
+}
+
+#passwordback{
+    grid-area: updatebutton;
+    width: auto;
+    margin: auto;
+    padding: 1vh;
+    border-radius: 1vh;
+    position: relative;
+    left: 5vh;
+}
+
+#continue{
+    position: relative;
+    left: 0.5vh;
+}
+#notcontinue{
+    position: relative;
+    left: 1vh;
+
+}
+#warning{
+    grid-area: opinion;
+}
+.popuptext{
+    font-size: medium;
+    text-align: center;
+}
