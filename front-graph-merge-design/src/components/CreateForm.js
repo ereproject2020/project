@@ -23,14 +23,15 @@ class CreateForm extends Component {
     handleChange = (e) => {
         const target = e.target;
         const name = target.name;
+        let text = e.target.value;
         this.setState({
-            [name]: target.value
+            [name]: text
         })
     }
     handleSubmit = async (e) => {
         e.preventDefault()
         await axios.post("http://woojinger.pythonanywhere.com/api/song/", {
-            title: this.state.title,
+            title: this.state.title.toLowerCase().replace(/(\s*)/g, ""),
             singer: this.state.singer
         })
         this.props.onMode(this.state.title)
