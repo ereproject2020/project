@@ -119,7 +119,7 @@ class Text extends Component {
         if ((this.state.mode === "update") || (this.state.mode === "delete")) {
             return (
                 <div className={"text"}>
-                    <input id={"password"} type="text" placeholder="Type Your Password" onChange={this.handleChange}
+                    <input id={"password"} type="password" placeholder="Type Your Password" onChange={this.handleChange}
                         value={this.state .userPassword} name="userPassword"/><br />
                     <Popup modal trigger={<button id={"passwordsubmit"} className={"updatebutton goldenrod"}>Submit</button>}>
                         <div className={"popuptext"}>This Process is Permanent</div>
