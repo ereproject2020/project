@@ -8,6 +8,9 @@
     "default_popup": "index.html",
     "default_title": "lasthope"
   },
+  "icons": {
+      "128": "icon128.png"
+  },
   "background": {
     "scripts": ["background.js"]
   },
