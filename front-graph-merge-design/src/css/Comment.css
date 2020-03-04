@@ -29,6 +29,7 @@
     margin-left: 2vh;
     border-radius: 5vh;
     height: 20vh;
+    outline: none;
 }
 #words{
     grid-area: word;

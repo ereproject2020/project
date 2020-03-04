@@ -73,7 +73,7 @@ class Commentform extends Component {
 
                 <div id={"comment"}>
                     <input type="text" id={"nicknameinput"} placeholder=" Insert ID" onChange={this.handleChange}
-                        value={this.state.userId} name="userId"/><br/>
+                        value={this.state.userId} name="userId" maxLength="15"/><br/>
                     <input type="text" id={"passwordinput"} placeholder=" Insert Password" onChange={this.handleChange}
                         value={this.state.userPassword} name="userPassword"/><br/>
                     <textarea
