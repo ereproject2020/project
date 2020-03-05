@@ -7,7 +7,8 @@ import { useConsumer} from '../context/context';
 class Textlist extends Component {
     state = { index: 0 }
     difficulty = 0
-    
+    past = true
+    more = true
     moreReview = () => {
         this.setState({ index: this.state.index + 5 })
     }
@@ -18,11 +19,22 @@ class Textlist extends Component {
 
     render() {
         const { comment } = this.props
+        
+        if(this.state.index===0){
+            this.past = false
+        }else{
+            this.past = true
+        }
+        if(this.state.index>comment.length-6){
+            this.more = false
+        }else{
+            this.more=true
+        }
         this.difficulty = 0.00
         const list = comment.map(
             function (info, index, array) {
                 this.difficulty = this.difficulty + info.starsIdx + info.starsRating
-                if ((index > array.length - this.state.index - 5)
+                if ((index > array.length - this.state.index - 6)
                 &&(index<array.length-this.state.index)) {
                     return (
                         <div className={"textlist"} key={index}>
@@ -47,10 +59,18 @@ class Textlist extends Component {
                         }
                     </div>
                 <div id={"buttons"}>
-                <button id={"past"} type="submit" onClick={this.pastReview}
-                >◁</button>
-                <button id={"more"} type="submit" onClick={this.moreReview}
-                >▷</button>
+                    {this.past ?
+                    <button id={"past"} type="submit" onClick={this.pastReview}
+                    >◁</button>
+                    :
+                    <div></div>
+                    }
+                    {this.more ?
+                    <button id={"more"} type="submit" onClick={this.moreReview}
+                    >▷</button>
+                    :
+                    <div></div>
+                    }
                 </div>
             </div>
         );
