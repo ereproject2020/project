@@ -38,7 +38,7 @@ class Songinfo extends Component {
             }
         }).then(function (res) {
             if (res.data.length === 0) {
-                this.setState({ difficulty: "No Rated" })
+                this.setState({ difficulty: "Not Rated" })
             } else {
                 var rating = 0
                 for (var i in res.data) {
@@ -63,7 +63,11 @@ class Songinfo extends Component {
                     <div className='label2'>Singer</div>
                     <div className="title"> {song.title}</div>
                     <div className="singer"> {song.singer}</div>
-                    <div className="difficulty"> <div style={{ "position": "relative", "right": "1.5vh" }}>Difficulty</div><h2 style={{ "margin": "auto" }}>{this.state.difficulty}</h2></div>
+                    <div className="difficulty"> 
+                    <div style={{ "position": "relative", "text-align":"center" }}
+                    >Difficulty</div>
+                    <h2 style={{ "margin": "auto", "text-align":"center"}}
+                    >{this.state.difficulty}</h2></div>
                     <div className="ratenumber">{this.props.comment.length} users have rated</div>
                 </div>
             );

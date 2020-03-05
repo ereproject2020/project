@@ -104,6 +104,15 @@ class Text extends Component {
         }
 
     }
+    numDifficulty=()=>{
+        const currentdiff=this.state.starsIdx + this.state.starsRating;
+        if (isNaN(currentdiff)){
+            return '';
+        }else{
+            return currentdiff;
+        }
+    }
+
     render() {
         const { update } = this.state
         if (this.state.mode === "fail") {
@@ -161,7 +170,7 @@ class Text extends Component {
                         starUpdate={this.handleUpdateStar}
                     ></Starshow>
                     </div>
-                    <span className={"rating"}>{this.state.starsIdx + this.state.starsRating}/10</span>
+                    <span className={"rating"}>{this.numDifficulty()}/10</span>
                     {
                         <div className={"updatebutton"}>
                             <button id={"updatesubmit"}

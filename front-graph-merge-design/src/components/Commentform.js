@@ -65,6 +65,14 @@ class Commentform extends Component {
         //새로운 comment 작성 후 장고로 post하는 기능 만들기
     }
 
+    numDifficulty=()=>{
+        const currentdiff=this.state.starsIdx + this.state.starsRating;
+        if (isNaN(currentdiff)){
+            return '';
+        }else{
+            return currentdiff;
+        }
+    }
 
     render() {
         return (
@@ -96,7 +104,7 @@ class Commentform extends Component {
                     
                     <span id={"words"}><h4>How do you rate this Song's difficulty?</h4></span>
                     <div id={"starcomment"}><Starshow  update={true} starUpdate={this.handleUpdateStar} ></Starshow></div>
-                    <span id={"commentrating"}>{this.state.starsIdx + this.state.starsRating}/10</span>
+                    <span id={"commentrating"}>{this.numDifficulty()}/10</span>
                     
                         <button id={"back"} className={"blue"} type="button" onClick={this.handleMode}>Return</button>
                 </div>
